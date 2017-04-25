@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'index.apps.IndexConfig',
     'analytics.apps.AnalyticsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -50,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'analytics.urls'
+ROOT_URLCONF = 'houses.urls'
 
 TEMPLATES = [
     {

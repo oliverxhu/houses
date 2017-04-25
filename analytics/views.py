@@ -4,8 +4,6 @@ from django.views import View
 
 # Create your views here.
 
-
-class MyView(View):
+class Analytics(View):
     def get(self, request):
-        return render(request, 'analytics/index.html')
-
+        return render(request, 'analytics/home.html')
