@@ -14,11 +14,13 @@
 
     <title>{% block title %}{% endblock %}</title>
 
+    <!-- jQuery -->
+    <script src="{% static 'index/js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'index/js/bootstrap.js' %}"></script>
     <!-- Bootstrap core CSS -->
     <link href="{% static 'index/css/bootstrap.min.css' %}" rel="stylesheet">
 
-    <!-- jQuery -->
-    <script src="{% static 'index/js/jquery-3.1.1.min.js' %}"></script>
+
     <link rel="stylesheet" href="{% block css %}{% endblock %}">
   </head>
 <body>
