@@ -7,7 +7,7 @@ from .forms import HouseSignupForm, SearchForm
 class Home(View):
     def get(self, request):
         form = SearchForm()
-        return render(request, 'index/home.html', {'form': form})
+        return render(request, 'index/home.html', {'search_form': form})
 
 class Signup(View):
     def post(self, request):

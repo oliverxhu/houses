@@ -16,4 +16,5 @@ class HouseSignupForm(AuthForm):
 class SearchForm(forms.Form):
     location = forms.CharField(label='Location', max_length=100, required=False)
     max_price = forms.IntegerField(label='Max Price', required=False)
-    field_order = ['max_price', 'location']
+    type = forms.ChoiceField(label='Type', widget=forms.RadioSelect, choices=(('1', 'Residential'), (2, 'Rent')))
+    field_order = ['max_price', 'location', 'type']

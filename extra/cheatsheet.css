@@ -1,0 +1,172 @@
+/****************************************
+IDs:
+    One per document
+Default Browser Styles:
+    Each browser has different default styles
+    CSS Resets override browser default styles
+Sheet Conflicts and Cascade:
+    1) Same selector: bottommost style wins from top to bottom of the HTML, including the external one
+    2) More specific selector: the most specific selector wins
+Specificity:
+    Add up the points in each selector, and whichever has the most points will work
+    ID: 100 points
+    Class: 10 points
+    Elements: 1 points
+    Basically, ID > Class > Element
+*/
+
+
+/* Styling multiple elements */
+
+p,
+span,
+a,
+li {
+    color: red;
+}
+
+
+/* Inheritance */
+
+body {
+    /* All descendents inherit parent properties, ie. every tag inside body will have color blue. 
+    Some won't, such as <a> tags where Inheritance is overriden with Default Browser Styles */
+    color: blue;
+}
+
+
+/* Descendents */
+
+#main-content #sub-content p {
+    /* Styles all <p> tags <div id="main-content"> <div id="sub-content"> <p>Hi</p> </div></div>*/
+    color: pink;
+}
+
+
+/* Direct Children
+<div id="main-content"> <p>Hi</p> <div id="sub-content"> <p>Bye</p>
+How do we only style the first <p>? */
+
+#main-content>p {
+    color: purple;
+}
+
+
+/* Adjacent Selectors
+Select all elements directly after another element */
+
+#main-content h2+p {
+    color: blue;
+}
+
+
+/* All <p> elements that come directly after all <h2> elements in <div id="main-content"> */
+
+
+/* Attribute Selectors 
+Select all elements with an existing attribute */
+
+span[class] {
+    color: purple;
+}
+
+
+/* Get all span elements that have a class attribute */
+
+a[href="http://google.com"] {
+    text-align: left;
+}
+
+
+/* Style all <a> tags that have this href. Note the attribute value is case-sensitive */
+
+a[href$=".pdf"] a[href^="http"] li[class~="search"] {
+    color: blue;
+}
+
+
+/* Match any <a> that have a href ending in ".pdf" 
+or starting in "http", and match any <li> that has a class that contains "search" */
+
+
+/* Pseudo Selectors */
+
+
+/* Pseudo Selectors: Dynamic
+    Based on user behaviour eg. Hover effects
+    .class:keyword{} */
+
+.a:hover {
+    color: red;
+}
+
+
+/* Change link color to red when you hover over it */
+
+.a:active {
+    color: orange;
+}
+
+
+/* When user is in the moment of clicking the link */
+
+.a:visited {
+    color: purple;
+}
+
+
+/* When user has visited the link */
+
+
+/* Pseudo Selectors: Structural
+    Advanced structures eg. Parent child relationships */
+
+ul li:first-child,
+ul li:last-child {
+    font-weight: bold;
+}
+
+
+/* Style the first and last child element of the list if it is <li> */
+
+ul p:first-of-type {
+    font-weight: bold;
+}
+
+
+/* Gets the first child element <p> */
+
+li:nth-child(1),
+li:nth-child(7) {
+    font-weight: bold;
+}
+
+
+/* Make the 1st child and 7th child bold */
+
+li:nth-child(even) {
+    background: grey;
+}
+
+li:nth-child(2n+1) {
+    background-color: green;
+}
+
+
+/* n starts at 0, this colors every 2n+1 <li> tag green */
+
+
+/* Important Declaration */
+
+div {
+    display: block !important;
+}
+
+
+/* Overrides everything */
+
+#main-content p {
+    /* style all <p> tags within the div. This is worth 101 points, 
+    and only something targeting the p with more than 101 points will override it */
+    color: red;
+}

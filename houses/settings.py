@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'index.apps.IndexConfig',
     'analytics.apps.AnalyticsConfig',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,7 +79,10 @@ WSGI_APPLICATION = 'houses.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'housing',
+        'NAME': 'housingwebsite',
+        'OPTIONS': {
+            'options': '-c search_path=website'
+        },
         'HOST': 'housing-postgres.ct0tluqftf3s.ap-southeast-2.rds.amazonaws.com',
         'USER': 'housingdata',
         'PASSWORD': 'housingdata123',
