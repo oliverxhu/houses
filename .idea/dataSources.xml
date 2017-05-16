@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Housing" uuid="b07791a5-b086-48b0-be8c-be225dc3ae9a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/houses/settings.py</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://housing-postgres.ct0tluqftf3s.ap-southeast-2.rds.amazonaws.com/housingwebsite</jdbc-url>
+    </data-source>
+  </component>
+</project>

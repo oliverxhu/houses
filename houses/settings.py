@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'houses.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'housingwebsite',
+        'NAME': 'housingwebsite', # database
         'OPTIONS': {
-            'options': '-c search_path=website'
+            'options': '-c search_path=website' # schema
         },
         'HOST': 'housing-postgres.ct0tluqftf3s.ap-southeast-2.rds.amazonaws.com',
         'USER': 'housingdata',

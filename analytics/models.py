@@ -3,8 +3,15 @@ from django.db import models
 
 # Create your models here.
 
-class Current_Listing(models.Model):
-    id_current_listing = models.ForeignKey(Listing)
+class Agency(models.Model):
+    id_agency = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=100, null=True)
+    fax = models.CharField(max_length=30, null=True)
+    is_licenced_property = models.NullBooleanField()
+    is_real_estate = models.NullBooleanField()
+    phone = models.CharField(max_length=30, null=True)
+    website = models.URLField(null=True)
+    last_updated = models.DateTimeField()
 
 class Listing(models.Model):
     id_listing = models.IntegerField(primary_key=True)
@@ -14,6 +21,9 @@ class Listing(models.Model):
     data_source = models.CharField(max_length=20)
     job_run_datetime = models.DateTimeField()
     last_updated = models.DateTimeField()
+
+class Current_Listing(models.Model):
+    id_current_listing = models.ForeignKey(Listing)
 
 class Detail_Main_Rental(models.Model):
     id_listing = models.ForeignKey(Listing)
@@ -34,7 +44,7 @@ class Detail_Main_Rental(models.Model):
     smokers_okay = models.NullBooleanField()
     start_date = models.DateTimeField(null=True)
     start_price = models.DecimalField(max_digits=11, decimal_places=2, null=True)
-    title = models.CharField(max_digits=100, null=True)
+    title = models.CharField(max_length=100, null=True)
     rent_per_week = models.DecimalField(max_digits=11, decimal_places=2, null=True)
     whiteware = models.CharField(max_length=255, null=True)
     last_updated = models.DateTimeField()
@@ -58,19 +68,9 @@ class Detail_Main_Residential(models.Model):
     smokers_okay = models.NullBooleanField()
     start_date = models.DateTimeField(null=True)
     start_price = models.DecimalField(max_digits=11, decimal_places=2, null=True)
-    title = models.CharField(max_digits=100, null=True)
+    title = models.CharField(max_length=100, null=True)
     rent_per_week = models.DecimalField(max_digits=11, decimal_places=2, null=True)
     whiteware = models.CharField(max_length=255, null=True)
-    last_updated = models.DateTimeField()
-
-class Agency(models.Model):
-    id_agency = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=100, null=True)
-    fax = models.CharField(max_length=30, null=True)
-    is_licenced_property = models.NullBooleanField()
-    is_real_estate = models.NullBooleanField()
-    phone = models.CharField(max_length=30, null=True)
-    website = models.URLField(null=True)
     last_updated = models.DateTimeField()
 
 class Agency_Brand(models.Model):
@@ -99,16 +99,6 @@ class Agent_Detail(models.Model):
     id_agent = models.ForeignKey(Agent)
     last_updated = models.DateTimeField()
 
-class Listing_Location(models.Model):
-    id_listing = models.ForeignKey(Listing)
-    id_location = models.ForeignKey(Location)
-    address = models.CharField(max_length=255, null=True)
-    latitude = models.CharField(max_length=20)
-    longitude = models.CharField(max_length=20)
-    easting = models.CharField(max_length=20)
-    northing = models.CharField(max_length=20)
-    last_updated = models.DateTimeField()
-
 class Region(models.Model):
     id_region = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=40)
@@ -129,6 +119,16 @@ class Location(models.Model):
     id_region = models.ForeignKey(Region)
     id_district = models.ForeignKey(District)
     id_suburb = models.ForeignKey(Suburb)
+    last_updated = models.DateTimeField()
+
+class Listing_Location(models.Model):
+    id_listing = models.ForeignKey(Listing)
+    id_location = models.ForeignKey(Location)
+    address = models.CharField(max_length=255, null=True)
+    latitude = models.CharField(max_length=20)
+    longitude = models.CharField(max_length=20)
+    easting = models.CharField(max_length=20)
+    northing = models.CharField(max_length=20)
     last_updated = models.DateTimeField()
 
 class Adjacent_Suburb(models.Model):
@@ -175,7 +175,7 @@ class Photo(models.Model):
     photo_key = models.CharField(max_length=20)
     last_updated = models.DateTimeField()
 
-class photo_type_helper(models.Model):
+class Photo_Type_Helper(models.Model):
     id_photo_type = models.SmallIntegerField(primary_key=True)
     url_name = models.CharField(max_length=30)
     description = models.CharField(max_length=50, null=True)
