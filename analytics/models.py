@@ -131,9 +131,9 @@ class Listing_Location(models.Model):
     northing = models.CharField(max_length=20)
     last_updated = models.DateTimeField()
 
-class Adjacent_Suburb(models.Model):
-    id_listing = models.ForeignKey(Listing)
-    id_adjacent_suburb = models.ForeignKey(Suburb)
+class Adjacent_Suburbs(models.Model):
+    id_suburb = models.ForeignKey(Suburb)
+    id_suburb_adjacent = models.IntegerField()
     last_updated = models.DateTimeField()
 
 class Tm_Detail_Sub_Rental(models.Model):

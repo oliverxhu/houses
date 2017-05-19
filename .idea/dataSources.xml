@@ -9,5 +9,13 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://housing-postgres.ct0tluqftf3s.ap-southeast-2.rds.amazonaws.com/housingwebsite</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Django default" uuid="fa231007-d631-4d44-b188-de9925ab963b">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/houses/settings.py</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://housing-postgres.ct0tluqftf3s.ap-southeast-2.rds.amazonaws.com/housingwebsite</jdbc-url>
+    </data-source>
   </component>
 </project>
