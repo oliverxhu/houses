@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'housingwebsite', # database
         'OPTIONS': {
-            'options': '-c search_path=website' # schema
+            'options': '-c search_path=website'  # schema
         },
         'HOST': 'housing-postgres.ct0tluqftf3s.ap-southeast-2.rds.amazonaws.com',
         'USER': 'housingdata',
